@@ -7,15 +7,11 @@ cards_str_to_value_map = dict(zip(cards, [i for i in range(0,len(cards))]))
 hand_types = ['1', '2', '2+2', '3', '3+2', '4', '5']
 hands_types_to_value_map = dict(zip(hand_types, [i for i in range(0,len(hand_types))]))
 
-print(cards_str_to_value_map)
-print(hands_types_to_value_map)
-
 def encode_hand(hand): 
     max_same = 0
     hand_type = '1'
     cards = collections.defaultdict(int)
     hand_encoded = 0
-    print('parsing',hand)
     for i in range(0, 5):
         card = hand[i]
         cards[card] += 1
@@ -43,11 +39,8 @@ def encode_hand(hand):
         else:
             hand_type = str(max_same)
 
-    print('type',hand_type,'type_value',hands_types_to_value_map[hand_type])
     hand_value = hands_types_to_value_map[hand_type]
     hand_encoded = hand_encoded | (hand_value << (4*5))
-
-    print('encoded',hand,'->',hex(hand_encoded))
 
     return hand_encoded
 
@@ -69,15 +62,11 @@ def main():
 
     hands = parse_file(fname)
     num = len(hands)
-    print(hands)
 
     sorted_hands = sorted(hands, key=lambda x: x[0])
-    print(sorted_hands)
 
-    print('total cards',num,len(sorted_hands))
     for i in range(1, num + 1):
         total += sorted_hands[i - 1][1]*i
-
 
     print("total = {}", total)
 

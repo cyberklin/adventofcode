@@ -27,7 +27,6 @@ def read_x(matrix, center_coords):
     res = ''
     for d in diffs:
         res += read_next_letter(matrix, center_coords, d)
-#    print('x read from ', center_coords, ' = ', res)
     return res
         
 def is_x_mas(s):

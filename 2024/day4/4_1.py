@@ -35,10 +35,8 @@ def get_next_letter(matrix, coords, direction):
     return get_letter(matrix, get_next_coords(coords, direction))
 
 def check_next_letter(matrix, coords, letter, diff, start):
-#    print('check next letter ', [coords, letter, diff])
     next_letter = NEXT_LETTER[letter]
     if next_letter == END:
-#        print('found! start: ', start, ' end: ', coords, 'direction: ', diff)
         return 1
     elif next_letter == get_next_letter(matrix, coords, diff):
         return check_next_letter(matrix, get_next_coords(coords, diff), next_letter, diff, start)

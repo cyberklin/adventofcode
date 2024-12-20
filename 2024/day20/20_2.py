@@ -73,7 +73,6 @@ def main():
             man_distance = abs(path[i][0] - path[j][0]) + abs(path[i][1] - path[j][1])
             if man_distance <= 20 and man_distance < path_distance:
                 saving = path_distance - man_distance
-                # print(path[i], 'to',path[j], 'saves', saving)
                 cheats[saving].append((path[i], path[j]))
 
     result = 0

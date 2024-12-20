@@ -58,15 +58,12 @@ def main():
                 q.append(next_pos)
 
     # rebuild path
-    pathdict, path = {}, []
+    path = []
     current = end
     while current is not None:
         path.append(current)
-        pathdict[current] = 1
         current = costs[current][1]
     path.reverse()
-
-    # print('path = ', path)
 
     # find cheats
     cheats = collections.defaultdict(list)
@@ -82,7 +79,6 @@ def main():
     result = 0
     for saving in sorted(cheats.keys()):
         if saving >= 100:
-            # print(f"Savings of {saving} steps:", len(cheats[saving]))
             result += len(cheats[saving])
 
     print('result = ', result)
